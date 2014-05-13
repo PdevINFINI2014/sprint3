@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<h:outputScript library="js" name="jquery-1.10.2.js"></h:outputScript>
+ <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+  
+   <h:outputScript library="js" name="sb-admin.js"></h:outputScript>
+   <h:outputScript library="js" name="login.js"></h:outputScript>
+   
+
+
+
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>L'esprit du trading</title>
+
+    <!-- Core CSS - Include with every page -->
+  <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+   <h:outputStylesheet library="font-awesome/css/" name="font-awesome.css"></h:outputStylesheet>
+  <h:outputStylesheet library="css" name="sb-admin.css"></h:outputStylesheet>
+ 
+    
+
+    <!-- SB Admin CSS - Include with every page -->
+  
+
+</h:head>
+
+<h:body >
+
+<div class="container">
+
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form jsf:id="myForm" jsf:prependId="false" >
+			<fieldset>
+				<h2>Please Sign In</h2>
+				<hr class="colorgraph"></hr>
+				<h:form rendered="#{authenticateBean.failure}">
+							<div class="alert alert-danger">
+								<a class="close" data-dismiss="alert" href="#">×</a>wrong credentials !
+							</div>
+						</h:form>
+				
+				<div class="form-group">
+                    <input type="text" name="login" id="login" class="form-control input-lg" placeholder="login" jsf:value="#{authenticateBean.login}" ></input>
+                    
+				</div>
+				<div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" jsf:value="#{authenticateBean.password}"></input>
+				</div>
+				<span class="button-checkbox">
+					<button type="button" class="btn" data-color="info">Remember Me</button>
+                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden"></input>
+					<a href="" class="btn btn-link pull-right">Forgot Password?</a>
+				</span>
+				<hr class="colorgraph"></hr>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In"  jsf:action="#{authenticateBean.authenticate()}"></input>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+					<input  type="submit" class="btn btn-lg btn-primary btn-block" value="Register " jsf:action="register.jsf"></input>
+						
+					</div>
+					
+				</div>
+				
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+</div>
+
+    
+   
+</h:body>
+</ui:composition>

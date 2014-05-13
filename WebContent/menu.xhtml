@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui">
+	 <h:body>
+	 
+<nav class="navbar navbar-default navbar-static-top" role="navigation"
+			style="margin-bottom: 0" >
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".sidebar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+
+			</button>
+
+
+		</div>
+		<ul class="nav navbar-top-links navbar-right">
+
+			<li><i class="glyphicon glyphicon-time"> </i> <span
+				id="texteDate" style="font-size: 10pt; font-weight: bold;"></span></li>
+			<li><i class="fa fa-user fa-fw"> </i> <h:outputText
+					value="#{authenticateBean.login}" /></li>
+			<li>
+				<p class="change_link">
+					<a type="button" class="btn btn-default navbar-btn"
+						href="#{authenticateBean.logout()}"> <span
+						class="glyphicon    glyphicon-off"></span> Sign out
+					</a>
+				</p>
+			</li>
+
+		</ul>
+		<!-- /.navbar-top-links --> </nav>
+		<!-- /.navbar-static-top -->
+
+		<!--/implementation entete-->
+		
+		</h:body>
+		
+		</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
+
+<ui:include src="head.xhtml"></ui:include>
+
+
+
+
+<h:body onload="afficheDate();" id="body">
+	<div id="wrapper">
+
+		<ui:include src="menu.xhtml"></ui:include>
+
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">L'esprit Du trading</h1>
+
+					<nav class="navbar navbar-default navbar-static-top"> <!--les menu pills-->
+					<ul class="nav nav-pills">
+
+						<li><a href="index.jsf">Home</a></li>
+						<li class="active"><a href="#">Profile</a></li>
+						<li><a href="transactionCorporate.jsf">Transaction</a></li>
+						<li><a href="#">Banks</a></li>
+						<li><a href="#">Corporate</a></li>
+						<li><a href="#">Download</a></li>
+						<li><a href="#"><span
+								class="glyphicon  glyphicon-info-sign"></span></a></li>
+					</ul>
+					</nav>
+
+
+
+					<!--/menu pills-->
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+
+			<!--description-->
+
+			<h3>Description</h3>
+			<div class="row">
+				<div class="col-lg-8">
+
+					<h:form>
+						<div class="input-group input-group-lg" style="height: 250px;">
+
+							<span class="input-group-addon" style="width: 160px;"> <img
+								class="img-circle"
+								src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"></img>
+							</span>
+							<h:inputTextarea class="form-control input-lg"
+								placeholder="write something .."
+								style="height: 250px; width: 650px;"
+								value="#{profileBean.description}">
+							</h:inputTextarea>
+
+						</div>
+						<input type="submit" class="btn btn-warning pull-right"
+							style="width: 160px;" value="Post"
+							jsf:action="#{profileBean.doAddDescription()}"></input>
+					</h:form>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading clickable">
+							<h3 class="panel-title">
+								Banks <span class="pull-right "><i
+									class="glyphicon glyphicon-minus"></i></span>
+							</h3>
+
+						</div>
+						<ui:include src="bank.xhtml"></ui:include>
+
+					</div>
+				</div>
+			</div>
+			<!--row-->
+
+
+
+			<!--/description-->
+
+			<!--Contact details & Traders-->
+			<div class="row">
+
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading clickable">
+							<h3 class="panel-title">
+								<span class="glyphicon glyphicon-phone-alt"></span> Contact
+								details <span class="pull-right "><i
+									class="glyphicon glyphicon-minus"></i></span>
+							</h3>
+
+						</div>
+						<div class="panel-body">
+							<form jsf:id="myform">
+							    <div class="form-group">
+									<label>Solde</label> <input type="text" 
+										class="form-control bfh-phone input-lg" disabled="disabled"
+									    jsf:value="#{profileBean.getSolde()}"
+										></input>
+								</div>
+								<div class="form-group">
+									<label>Phone number</label> <input type="text"
+										class="form-control bfh-phone input-lg"
+										data-format="dd dd-dd-dd" jsf:value="#{profileBean.phone}"
+										placeholder="(55)55-55-55"></input>
+								</div>
+
+								<div class="form-group">
+									<label>E-mail address</label> <input type="text" name="email"
+										id="email" class="form-control input-lg" placeholder="E-mail"
+										jsf:value="#{profileBean.email}"></input>
+								</div>
+
+								<div class="form-group">
+									<label>address</label>
+									<h:inputTextarea class="form-control input-lg"
+										placeholder="address .." value="#{profileBean.address}">
+									</h:inputTextarea>
+								</div>
+								<input type="submit" class="btn btn-warning pull-right"
+									value="save" jsf:action="#{profileBean.doAddContact()}"></input>
+							</form>
+
+
+							<!--  <button type="button" class="btn btn-warning pull-right" ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button> -->
+						</div>
+					</div>
+				</div>
+				<!-- <ui:include src="trader.xhtml" /> -->
+
+			<ui:include src="traders.xhtml"></ui:include>
+
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading clickable">
+							<h3 class="panel-title">
+								Corporate <span class="pull-right "><i
+									class="glyphicon glyphicon-minus"></i></span>
+							</h3>
+
+						</div>
+						<ui:include src="corporate.xhtml"></ui:include>
+
+					</div>
+				</div>
+
+			</div>
+
+			<ui:include src="bankAccount.xhtml"></ui:include>
+            
+
+			<ui:include src="currencyprice.xhtml"></ui:include>
+
+           <ui:include src="corporateAccount.xhtml"></ui:include>
+			<h3>Hang out</h3>
+
+			<ui:include src="chat.xhtml"></ui:include>
+			
+		</div>
+		<!-- /#page-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+</h:body>
+
+</ui:composition>

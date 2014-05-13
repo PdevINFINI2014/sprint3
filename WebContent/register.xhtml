@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	 xmlns:p="http://primefaces.org/ui"
+	 >
+<h:head>
+    <meta charset="UTF-8" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+	<title>L'esprit du trading</title>
+
+
+	<!-- Core CSS - Include with every page -->
+	
+
+	<link href="#{request.contextPath}/resources/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link
+		href="#{request.contextPath}/resources/font-awesome/css/font-awesome.css"
+		rel="stylesheet" />
+
+	<!-- Page-Level Plugin CSS - Dashboard -->
+	<link
+		href="#{request.contextPath}/css/plugins/morris/morris-0.4.3.min.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/css/plugins/timeline/timeline.css"
+		rel="stylesheet" />
+
+	<!-- SB Admin CSS - Include with every page -->
+	<link href="#{request.contextPath}/resources/css/sb-admin.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/css/table.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/css/tab.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/css/sidepanel.css"
+		rel="stylesheet" />
+
+
+	<link
+		href="#{request.contextPath}/resources/css/bootstrap-combobox.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/select2-3.4.6/select2.css"
+		rel="stylesheet" />
+
+
+	<!-- Core Scripts - Include with every page -->
+
+	<script src="#{request.contextPath}/resources/js/jquery-1.10.2.js"></script>
+	<script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
+	<script src="#{request.contextPath}/resources/js/selectrow.js"></script>
+	<script
+		src="#{request.contextPath}/resources/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="#{request.contextPath}/resources/select2-3.4.6/select2.js"></script>
+
+
+	<!--     Page-Level Plugin Scripts - Dashboard-->
+	<script
+		src="#{request.contextPath}/resources/js/plugins/morris/raphael-2.1.0.min.js"></script>
+	<script
+		src="#{request.contextPath}/resources/js/plugins/morris/morris.js"></script>
+
+	<!--   SB Admin Scripts - Include with every page-->
+	<script src="#{request.contextPath}/resources/js/sb-admin.js"></script>
+
+	<!--  Page-Level Demo Scripts - Dashboard - Use for reference-->
+	<script
+		src="#{request.contextPath}/resources/js/demo/dashboard-demo.js"></script>
+
+	<script src="#{request.contextPath}/resources/js/sidePanel.js"> </script>
+	<script src="#{request.contextPath}/resources/js/bootstrap-combobox.js"
+		type="text/javascript"></script>
+
+
+</h:head>
+<h:body>
+
+	<div class="container">
+
+		<div class="row" style="margin-top: 20px">
+
+
+
+			<div
+				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<form jsf:id="myForm" jsf:prependId="false">
+
+					<fieldset>
+						<div class="row">
+							<div class="col-xs-6 col-md-8">
+								<h2>Would you like to join us</h2>
+							</div>
+							<h:form rendered="#{registerBean.validateRegister}">
+							<div class="col-xs-6 col-md-4">
+								
+									<p class="change_link">
+
+										<a href="login.jsf" class="btn btn-lg btn-warning btn-block "><span
+											class="glyphicon glyphicon-share-alt"></span> sign in </a>
+
+									</p>
+								
+							</div>
+							</h:form>
+						</div>
+						<hr class="colorgraph"></hr>
+						<h:form rendered="#{registerBean.noValidRegister}">
+							<div class="alert alert-danger">
+								<a class="close" data-dismiss="alert" href="#">×</a>your login
+								or mail is already in use!
+							</div>
+						</h:form>
+
+						<h:form rendered="#{registerBean.noPassMatch}">
+							<div class="alert alert-danger">
+								<a class="close" data-dismiss="alert" href="#">×</a>incorrect
+								password confirmation !
+							</div>
+						</h:form>
+						<h:form rendered="#{registerBean.validateRegisterbank}">
+							<div class="alert alert-info">
+								<a class="close" data-dismiss="alert" href="#">×</a>Wait for
+								our confirmation mail . thank you !
+							</div>
+						</h:form>
+						<h:form rendered="#{registerBean.validateRegister}">
+
+							<div class="alert alert-success">
+								<a class="close" data-dismiss="alert" href="#">×</a>
+								Registration successfully complete !
+
+							</div>
+
+						</h:form>
+						<div class="form-group">
+							<input type="text" name="Name" id="name"
+								class="form-control input-lg" placeholder="Name"
+								jsf:value="#{registerBean.name}" required="true" ></input>
+						</div>
+
+						<div class="form-group">
+							<input type="text" name="login" id="login"
+								class="form-control input-lg" placeholder="login"
+								jsf:value="#{registerBean.login}" required="true"></input>
+						</div>
+
+						<div class="form-group">
+							<input type="email" name="email" id="email"
+								class="form-control input-lg" placeholder="Email Address"
+								jsf:value="#{registerBean.mail}" required="true"></input>
+						</div>
+						
+						<div class="form-group">
+							<input type="number"
+								class="form-control input-lg" placeholder="Phone"
+								value="#{registerBean.phone}" required="required" />
+						</div>
+						
+						<div class="form-group">
+							<input type="text" name="address" id="address"
+								class="form-control input-lg" placeholder="Address"
+								jsf:value="#{registerBean.address}" ></input>
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" id="password"
+								class="form-control input-lg" placeholder="Password"
+								jsf:value="#{registerBean.password}" required="true"></input>
+						</div>
+						<div class="form-group">
+							<input type="password" name="confirmpassword"
+								id="confirm password" class="form-control input-lg"
+								placeholder=" Confirm Password"
+								jsf:value="#{registerBean.confirmedpassword}" required="true"></input>
+						</div>
+
+						<div classs="form-group">
+							<label> subscribed as : </label>
+
+							<h:selectOneRadio
+								value="#{registerBean.selectOneRadioView.clientType}">
+
+								<f:selectItems
+									value="#{registerBean.selectOneRadioView.clientTypeList}" />
+
+							</h:selectOneRadio>
+
+						</div>
+
+
+
+						<hr class="colorgraph"></hr>
+
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input type="submit" class="btn btn-lg btn-success btn-block"
+									value="Submit" jsf:action="#{registerBean.onSubmit()}"></input>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<p class="change_link">
+
+									<a href="login.jsf" class="btn btn-lg btn-primary btn-block">
+										Cancel </a>
+								</p>
+							</div>
+
+						</div>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+</h:body>
+
+</ui:composition>

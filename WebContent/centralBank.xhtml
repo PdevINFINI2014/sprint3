@@ -1,0 +1,247 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
+<ui:include src="head.xhtml"></ui:include>
+<h:body onload="afficheDate();">
+	<div id="wrapper">
+
+		<!--implementation entete-->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation"
+			style="margin-bottom: 0">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".sidebar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+
+			</button>
+
+
+		</div>
+		<ul class="nav navbar-top-links navbar-right">
+
+			<li><i class="glyphicon glyphicon-time"> </i> <span
+				id="texteDate" style="font-size: 10pt; font-weight: bold;"></span></li>
+			<li><i class="fa fa-user fa-fw"> </i> <h:outputText
+					value="#{authenticateBean.login}" /></li>
+			<li>
+				<p class="change_link">
+					<a type="button" class="btn btn-default navbar-btn"
+						href="#{authenticateBean.logout()}"> <span
+						class="glyphicon    glyphicon-off"></span> Sign out
+					</a>
+				</p>
+			</li>
+
+		</ul>
+		<!-- /.navbar-top-links --> </nav>
+		<!-- /.navbar-static-top -->
+
+		<!--/implementation entete-->
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">Trading Esprit</h1>
+
+					<nav class="navbar navbar-default navbar-static-top"> <!--les menu pills-->
+					<ul class="nav nav-pills">
+
+						<li><a href="#">Home</a></li>
+						<li class="active"><a href="#">Profile</a></li>
+						<li><a href="#">Transaction</a></li>
+						<li><a href="#">Banks</a></li>
+						<li><a href="#">Corporate</a></li>
+						<li><a href="#">Download</a></li>
+						<li><a href="#"><span
+								class="glyphicon  glyphicon-info-sign"></span></a></li>
+					</ul>
+					</nav>
+
+
+
+					<!--/menu pills-->
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+
+			<!--description-->
+
+			<h3>Description</h3>
+			<div class="row">
+				<div class="col-lg-8">
+
+					<h:form>
+						<div class="input-group input-group-lg" style="height: 250px;">
+
+							<span class="input-group-addon" style="width: 160px;"> <img
+								class="img-circle"
+								src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"></img>
+							</span>
+							<h:inputTextarea class="form-control input-lg"
+								placeholder="write something .."
+								style="height: 250px; width: 650px;"
+								value="#{profileBean.description}">
+							</h:inputTextarea>
+
+						</div>
+						<input type="submit" class="btn btn-warning pull-right"
+							style="width: 160px;" value="Post"
+							jsf:action="#{profileBean.doAddDescription()}"></input>
+					</h:form>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading clickable">
+							<h3 class="panel-title">
+								Banks <span class="pull-right "><i
+									class="glyphicon glyphicon-minus"></i></span>
+							</h3>
+
+						</div>
+						<div class="panel panel-warning">
+							<div class="panel-body">
+
+								<ul class="list-group list-member">
+									<a href="#" class="list-group-item"> <img
+										class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Cras justo odio
+									</a>
+									<a href="#" class="list-group-item active"><img
+										class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Dapibus ac facilisis in</a>
+									<a href="#" class="list-group-item"><img class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Morbi leo risus</a>
+									<a href="#" class="list-group-item"><img class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Porta ac consectetur ac</a>
+									<a href="#" class="list-group-item"><img class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Vestibulum at eros</a>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--row-->
+
+
+
+			<!--/description-->
+
+			<!--Contact details & Traders-->
+			<div class="row">
+
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading clickable">
+							<h3 class="panel-title">
+								<span class="glyphicon glyphicon-phone-alt"></span> Contact
+								details <span class="pull-right "><i
+									class="glyphicon glyphicon-minus"></i></span>
+							</h3>
+
+						</div>
+						<div class="panel-body">
+							<form jsf:id="myform">
+								<div class="form-group">
+									<label>Phone number</label> <input type="text"
+										class="form-control bfh-phone input-lg"
+										data-format="dd dd-dd-dd" jsf:value="#{profileBean.phone}"
+										placeholder="(55)55-55-55"></input>
+								</div>
+
+								<div class="form-group">
+									<label>E-mail address</label> <input type="email" name="email"
+										id="email" class="form-control input-lg" placeholder="E-mail"
+										jsf:value="#{profileBean.email}"></input>
+								</div>
+
+								<div class="form-group">
+									<label>address</label>
+									<h:inputTextarea class="form-control input-lg"
+										placeholder="address .." value="#{profileBean.address}">
+									</h:inputTextarea>
+								</div>
+								<input type="submit" class="btn btn-warning pull-right"
+									value="save" jsf:action="#{profileBean.doAddContact()}"></input>
+							</form>
+
+
+							<!--  <button type="button" class="btn btn-warning pull-right" ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+				
+				</div>
+				
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading clickable">
+							<h3 class="panel-title">
+								Corporate <span class="pull-right "><i
+									class="glyphicon glyphicon-minus"></i></span>
+							</h3>
+
+						</div>
+						<div class="panel panel-warning">
+							<div class="panel-body">
+
+								<ul class="list-group list-member">
+									<a href="#" class="list-group-item"> <img
+										class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Cras justo odio
+									</a>
+									<a href="#" class="list-group-item active"><img
+										class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Dapibus ac facilisis in</a>
+									<a href="#" class="list-group-item"><img class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Morbi leo risus</a>
+									<a href="#" class="list-group-item"><img class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Porta ac consectetur ac</a>
+									<a href="#" class="list-group-item"><img class="img-circle"
+										src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+										alt="User Pic" /> Vestibulum at eros</a>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<!--/.row-->
+			
+			
+				 <h3>Managing currencies</h3>
+			<br />
+
+			<!--currency and central bank managing-->
+			<div class="row">
+			<ui:include src="/managingCurrency.xhtml" />
+</div>
+
+				 <h3>Managing Banks</h3>
+			<br />
+
+			<!--currency and central bank managing-->
+			<div class="row">
+			<ui:include src="/managingBanks.xhtml" />
+</div>
+			</div>
+			</div>
+			</h:body>
+			</ui:composition>

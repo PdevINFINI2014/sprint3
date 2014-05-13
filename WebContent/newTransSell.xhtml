@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
+	<form jsf:id="myFormSell" jsf:prependId="false">
+		<div class="form-group">
+			<label>Cross : </label> <br></br>
+
+			<h:selectOneMenu id="crossSell" style="width: 260px;"
+				class="selectpicker" value="#{transactionBean.curSelect}">
+
+				<f:selectItems value="#{transactionBean.getCur()}" />
+			</h:selectOneMenu>
+
+		</div>
+
+
+
+		<div class="form-group">
+			<label>Bank :</label> <br />
+			<h:selectOneMenu id="bnkSell" style="width: 260px;" class="selectpicker"
+				value="#{transactionBean.bnkSelect}">
+
+				<f:selectItems value="#{transactionBean.getBnk()}" />
+
+			</h:selectOneMenu>
+		</div>
+
+		<div class="form-group">
+			<label>Amount </label>
+			<div class="controls">
+
+				<div class="input-prepend input-append">
+
+					<input class="form-control" id="appendedPrependedInputSell"
+						type="number" jsf:value="#{transactionBean.ammountSelect}" />
+
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>price Ask</label>
+			<p:inputText type="text" class="form-control" id="priceSell"
+				value="#{transactionBean.getask()}" disabled="true" />
+
+		</div>
+		<div class="form-group">
+			<label>CtrCcy Amount</label>
+			<p:inputText type="text" class="form-control " id="AmountSell"
+				value="#{transactionBean.getsommeask()}" disabled="true" />
+
+		</div>
+		<br />
+		<br />
+		<div class="col-lg-6">
+
+			<p:commandButton class="btn btn-success" value="caculate"
+				update="priceSell,AmountSell">
+
+			</p:commandButton>
+		</div>
+
+
+		<h:commandButton class="btn btn-warning btn-lg" value="validate"
+			action="#{transactionBean.transactionSeller}">
+
+		</h:commandButton>
+
+	</form>
+</ui:composition>

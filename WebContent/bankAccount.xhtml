@@ -1,0 +1,138 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	 xmlns:p="http://primefaces.org/ui">
+
+<h:form id="bankTable" rendered="#{askBidBean.banqueRendred}">
+
+<h3>Accounts</h3>
+			<div class="row">
+
+				<div class="col-md-12 ">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Status</h3>
+
+
+			 			</div>
+			 			<div class="panel-body " >
+
+
+		<h:dataTable value="#{bankAccountBean.cARBset}" var="compte"
+			height="189" class="table table-striped table-bordered"
+			>
+
+			<h:column>
+				<f:facet name="header">IdAccount</f:facet>
+				<h:outputText value="#{compte.idAccountBanque}" />
+			</h:column>
+
+			<h:column>
+
+				<f:facet name="header">Currency</f:facet>
+				<h:outputText value="#{compte.currency.id_currency}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">Amount</f:facet>
+				<h:outputText value="#{compte.amount}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">CCtry</f:facet>
+				<h:outputText
+					value="#{currencySelectOneListboxView.localCurrency.id_currency}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">CCtry Amount</f:facet>
+				<h:outputText value="#{compte.amount}*2" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Action</f:facet>
+				<div class="text-center">
+
+					<h:commandButton value="Select" class="btn btn-outline btn-danger" rendered="#{ not compte.initialized}">
+						<f:setPropertyActionListener
+							target="#{bankAccountBean.accountToInit}"
+							value="#{compte.idAccountBanque}"></f:setPropertyActionListener>
+						<f:setPropertyActionListener
+							target="#{bankAccountBean.formDisplay}" value="true"></f:setPropertyActionListener>
+
+					</h:commandButton>
+
+				</div>
+
+			</h:column>
+
+
+
+
+		</h:dataTable>
+
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Edit</a>
+			</div>
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+				<h:form id="formAccount" rendered="#{bankAccountBean.formDisplay}">
+
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<p class="navbar-text">
+								<label> Id Compte</label>
+									</p>
+						</li>
+						<li>
+							<p class="navbar-text">
+								<h:outputText value="#{bankAccountBean.accountToInit}" />
+							</p>
+						</li>
+						<li>
+							<p class="navbar-text">
+								<label> Amount</label>
+							</p>
+						</li>
+
+						<li>
+							<p class="navbar-text">
+								<input type="number" class="form-control"
+									placeholder="Enter Amount"
+									jsf:value="#{bankAccountBean.amount}"></input>
+							</p>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<p class="navbar-text">
+								<input class="btn btn-outline btn-success pull-right"
+									type="submit" value="Initialize"
+									jsf:action="#{bankAccountBean.initBankAccount() }"></input>
+							</p>
+						</li>
+					</ul>
+
+				</h:form>
+
+			</div>
+		</nav>
+	</div>
+	</div>
+	</div>
+	</div>	
+	</h:form>
+</ui:composition>

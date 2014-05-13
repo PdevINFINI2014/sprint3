@@ -1,0 +1,139 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" 
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<div class="col-md-3">
+		<div class="panel panel-primary" style="height: 288px;">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Available Currencies</h3>
+
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-body" style="height: 230px;">
+
+
+
+					<h:form>
+
+						<h:selectOneListbox style=" width: 250px;"
+							value="#{availableCurrencySelectView.selected}"
+							class="selectpicker" data-live-search="true">
+
+							<f:selectItems value="#{availableCurrencySelectView.workingList}"></f:selectItems>
+
+						</h:selectOneListbox>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+
+
+						<input type="submit" class="btn btn-info pull-right"
+							value="Make available"
+							jsf:action="#{availableCurrencySelectView.doSetAvailable()}"></input>
+
+					</h:form>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="col-md-6">
+		<div class="panel panel-primary" style="height: 288px;">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Modifing Currencies</h3>
+
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-body" style="height: 230px;">
+
+					<ul class="list-group list-member">
+
+						<h:form>
+							<h:dataTable height="189"
+								class="table table-striped table-bordered"
+								value="#{availableCurrencySelectView.availableList}" var="cur">
+
+								<h:column>
+									<f:facet name="header">IdCurrency</f:facet>
+									<h:outputText value="#{cur.id_currency}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Currency name</f:facet>
+									<h:outputText value="#{cur.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Action</f:facet>
+									<div class="text-center">
+
+										<h:commandButton value="Select"
+											class="btn btn-outline btn-danger">
+											<f:setPropertyActionListener
+												target="#{availableCurrencySelectView.selectedCur}"
+												value="#{cur.id_currency}"></f:setPropertyActionListener>
+											<f:setPropertyActionListener
+												target="#{availableCurrencySelectView.formDisplay}"
+												value="true"></f:setPropertyActionListener>
+
+										</h:commandButton>
+									</div>
+								</h:column>
+
+							</h:dataTable>
+						</h:form>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="panel panel-primary" style="height: 288px;">
+			<div class="panel-heading ">
+				<h3 class="panel-title">Form</h3>
+			</div>
+			<div class="panel-body">
+				<h:form rendered="#{availableCurrencySelectView.formDisplay}">
+					<div class="form-group">
+						<label>Currency Id     :</label>
+						<h:outputText value="#{availableCurrencySelectView.selectedCur}"></h:outputText>
+					</div>
+					<div class="form-group">
+						<label>Unity </label> <input type="number"
+							class="form-control input-lg"
+							jsf:value="#{availableCurrencySelectView.unity}"
+							placeholder="unity number"></input>
+					</div>
+					<br></br>
+					<br></br>
+					<input type="submit" value="Remove"
+						jsf:action="#{availableCurrencySelectView.removeAvailability()}"
+						class="btn btn-outline btn-danger" />
+					<input type="submit" value="Save"
+						jsf:action="#{availableCurrencySelectView.modifyCurrency()}"
+						class="btn btn-outline btn-success pull-right" />
+				</h:form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</ui:composition>
