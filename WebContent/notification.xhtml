@@ -1,130 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
-	 xmlns:p="http://primefaces.org/ui"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui"
 	 xmlns:mashup="http://code.google.com/p/mashups4jsf/">
-<h:head>
-
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="refresh" content="120" />
-
-	<title> trading esprit</title>
-
-
-	<!-- Core CSS - Include with every page -->
-
-	<link href="#{request.contextPath}/resources/css/bootstrap.min.css"
-		rel="stylesheet" />
-	<link
-		href="#{request.contextPath}/resources/font-awesome/css/font-awesome.css"
-		rel="stylesheet" />
-
-	<!-- Page-Level Plugin CSS - Dashboard -->
-	<link
-		href="#{request.contextPath}/css/plugins/morris/morris-0.4.3.min.css"
-		rel="stylesheet" />
-	<link href="#{request.contextPath}/css/plugins/timeline/timeline.css"
-		rel="stylesheet" />
-
-	<!-- SB Admin CSS - Include with every page -->
-	<link href="#{request.contextPath}/resources/css/sb-admin.css"
-		rel="stylesheet" />
-	<link href="#{request.contextPath}/resources/css/table.css"
-		rel="stylesheet" />
-	<link href="#{request.contextPath}/resources/css/tab.css"
-		rel="stylesheet" />
-	<link href="#{request.contextPath}/resources/css/sidepanel.css"
-		rel="stylesheet" />
-
-	<link
-		href="#{request.contextPath}/resources/silviomoreto-bootstrap-select-cce6f42/bootstrap-select.css"
-		rel="stylesheet"></link>
-	<link
-		href="#{request.contextPath}/resources/silviomoreto-bootstrap-select-cce6f42/bootstrap-select.min.css"
-		rel="stylesheet"></link>
-
-
-
-
-
-	<!-- Core Scripts - Include with every page -->
-
-	<script src="#{request.contextPath}/resources/js/jquery-1.10.2.js"></script>
-	<script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
-	<script src="#{request.contextPath}/resources/js/selectrow.js"></script>
-	<script
-		src="#{request.contextPath}/resources/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-
-
-
-	<!--     Page-Level Plugin Scripts - Dashboard-->
-	<script
-		src="#{request.contextPath}/resources/js/plugins/morris/raphael-2.1.0.min.js"></script>
-	<script
-		src="#{request.contextPath}/resources/js/plugins/morris/morris.js"></script>
-
-	<!--   SB Admin Scripts - Include with every page-->
-	<script src="#{request.contextPath}/resources/js/sb-admin.js"></script>
-
-	<!--  Page-Level Demo Scripts - Dashboard - Use for reference-->
-	<script
-		src="#{request.contextPath}/resources/js/demo/dashboard-demo.js"></script>
-
-	<script src="#{request.contextPath}/resources/js/sidePanel.js"> </script>
-
-	<script
-		src="#{request.contextPath}/resources/silviomoreto-bootstrap-select-cce6f42/bootstrap-select.js"
-		type="text/javascript"></script>
-	<script
-		src="#{request.contextPath}/resources/silviomoreto-bootstrap-select-cce6f42/bootstrap-select.min.js"
-		type="text/javascript"></script>
-
-	<script language="JavaScript">
-//
-
-
-function afficheDate()
-	{
-
-	
-	date=new Date();
-
-	
-	heure=date.getHours();
-	minute=date.getMinutes();
-	seconde=date.getSeconds();
-	
-
-
-	document.getElementById("texteDate").innerHTML= heure+":"+minute+":"+seconde;
-	setTimeout("afficheDate()", 1000);
-
-		}
-
-</script>
-
-	<script type="text/javascript">
-        $(window).on('load', function () {
-
-        	 $('.selectpicker').selectpicker({
-        		 liveSearch  : true,
-        	      style: 'btn-default',
-        	      size: 7
-        	  });
-            $('.selectpicker').selectpicker('refresh');
-
-            // $('.selectpicker').selectpicker('hide');
-        });
-    </script>
-
-
-
-
-</h:head>
+<ui:include src="head.xhtml"></ui:include>
 <h:body onload="afficheDate();">
 	<div id="wrapper">
 
@@ -164,27 +45,9 @@ function afficheDate()
 		<!--/implementation entete-->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">Trading Esprit</h1>
-
-					<nav class="navbar navbar-default navbar-static-top"> <!--les menu pills-->
-					<ul class="nav nav-pills">
-
-						<li><a href="#">Home</a></li>
-						<li ><a href="#">Profile</a></li>
-						<li><a href="#">Transaction</a></li>
-						<li><a href="#">RSS</a></li>
-						
-						<li><a href="#">Download</a></li>
-						<li class="active"><a href="#" >Notifications</a>  </li>
-						
-					</ul>
-					</nav>
-
-
-
-					<!--/menu pills-->
-				</div>
+				<h:form>
+					<h:commandButton action="centralBank"  class="btn btn-warning btn-lg btn-block" value="Back" />
+                    </h:form>
 				<!-- /.col-lg-12 -->
 			</div>
 
@@ -281,4 +144,4 @@ function afficheDate()
 				</div>
 				</div>
 				</h:body>
-</html>
+</ui:composition>
