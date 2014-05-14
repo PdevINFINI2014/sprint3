@@ -20,7 +20,28 @@
 
 		</div>
 		<ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+<f:view>
+<h:form rendered ="#{notificationBean.showNotification}" >
 
+	<h:commandLink action="#{notificationBean.ShowHideNotification()}" value="Already seen !" onclick="#{notificationBean.init()}" />
+		<a class="dropdown-toggle" data-toggle="dropdown"><span
+								class="glyphicon  glyphicon-info-sign"></span> <i class="fa fa-caret-down"  >  </i></a>
+								
+								
+					
+								
+								<h:selectManyListbox  class="dropdown-menu dropdown-messages"  >
+								  <f:converter converterId="notifConverter"/>
+						 		<f:selectItems value="#{notificationBean.notifications}" var="notif"  itemLabel="#{notif.date}  / #{notif.text}" ></f:selectItems>
+		                        
+								</h:selectManyListbox>
+						
+							 
+	</h:form>
+	</f:view>
+		
+								</li>
 			<li><i class="glyphicon glyphicon-time"> </i> <span
 				id="texteDate" style="font-size: 10pt; font-weight: bold;"></span></li>
 			<li><i class="fa fa-user fa-fw"> </i> <h:outputText
