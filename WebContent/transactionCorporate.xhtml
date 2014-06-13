@@ -52,6 +52,7 @@
 						<li><a href="Profile.jsf">Profile</a></li>
 						<li class="active"><a href="#">Transaction</a></li>
 						<li ><a href="RSS.jsf" >News</a></li>
+						<li ><a href="newsbct.jsf" >News BCT</a></li>
 					</ul>
 					</nav>
 
@@ -75,10 +76,10 @@
 							<div class="pull-right"></div>
 						</div>
 						<!-- /widget-header -->
-
+<h:form>
 						<div class="widget-content">
 
-							<table class="table table-striped table-bordered">
+							<table id="tbl" class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th>N°Transaction</th>
@@ -115,14 +116,22 @@
 							</table>
 
 						</div>
+						
+						<!-- debut -->
+						     
+
+
 						<!-- /widget-content -->
 						<div class="widget-footer">
-							<button type="button" class="btn btn-warning pull-right"
+							<h:commandLink type="button" class="btn btn-warning pull-right"
 								style="width: 160px;">
 								<span class="glyphicon glyphicon-file"></span>Generate Records
-							</button>
+								 <!-- <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true"/> -->
+							</h:commandLink>
 						</div>
+						</h:form>
 					</div>
+					
 					<!-- /widget -->
 					.
 				</div>

@@ -296,8 +296,8 @@ public class TransactionBean implements Serializable {
 			}
 			Transaction transaction = new Transaction();
 			transaction.setAmount_Ctr_Price(getsommeask());
-			transaction.setBuyer(client);
-			transaction.setSeller(bnkSL.findByLogin(bnkSelect));
+			transaction.setBuyer(bnkSL.findByLogin(bnkSelect));
+			transaction.setSeller(client);
 			transaction.setCurr(curSL.findBy(curSelect));
 			transaction.setCurrencyAmount(ammountSelect);
 			transaction.setCurrPrice(getbid());

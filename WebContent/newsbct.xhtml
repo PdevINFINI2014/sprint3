@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:include src="head.xhtml"></ui:include>
+
+	<h:body onload="afficheDate();">
+
+		<div id="wrapper">
+
+
+			<ui:include src="menu.xhtml"></ui:include>
+
+
+
+
+
+			<div id="page-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 class="page-header">Trading's Spirit</h1>
+
+						<nav class="navbar navbar-default navbar-static-top">
+							<!--les menu pills-->
+							<ul class="nav nav-pills">
+
+								<li ><a href="index.jsf">Home</a></li>
+								<li><a href="Profile.jsf">Profile</a></li>
+								<li><a href="transactionCorporate.jsf">Transaction</a></li>
+								<li ><a href="RSS.jsf" >News</a></li>
+								<li class="active" ><a href="newsbct.jsf" >News BCT</a></li>
+							</ul>
+						</nav>
+
+
+
+
+					</div>
+
+				</div>
+
+				
+
+				<h3>News</h3>
+
+				<div class="row">
+					<div class="col-md-12">
+
+
+						<div class="panel panel-primary">
+
+							<div class="panel-heading clickable">
+								<h3 class="panel-title">
+									NEWS BCT <span class="pull-right "><i
+										class="glyphicon glyphicon-minus"></i></span>
+								</h3>
+
+							</div>
+
+
+							<div class="widget-content">
+								<h:form id="form">
+									<div class="panel-body ">
+										<div class="table-responsive">
+
+											<h:dataTable value="#{newsBean.listnews}" var="nw" id="table"
+			height="189" class="table table-striped table-bordered"
+			>
+
+			<h:column>
+				<f:facet name="header">Id news</f:facet>
+				<h:outputText value="#{nw.id}" />
+			</h:column>
+
+			<h:column>
+
+				<f:facet name="header">Date</f:facet>
+				<h:outputText value="#{nw.date_publication}" />
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">contents</f:facet>
+				<h:outputText value="#{nw.contents}" />
+			</h:column>
+
+
+			
+
+
+
+
+		</h:dataTable> 
+										</div>
+									</div>
+								</h:form>
+
+
+							</div>
+
+
+						</div>
+
+						.
+					</div>
+
+
+			
+				</div>
+
+
+             
+
+			</div>
+			<!-- /.panel-body -->
+
+			<!-- /.panel -->
+
+
+
+		</div>
+
+
+		
+
+	</h:body>
+
+</ui:composition>

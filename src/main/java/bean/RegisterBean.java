@@ -3,10 +3,10 @@ package bean;
 import java.io.Serializable;
 
 import java.util.HashMap;
-import java.util.HashSet;
+
 
 import java.util.Map;
-import java.util.Set;
+
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -19,7 +19,7 @@ import Pidev.entite.AskBid;
 import Pidev.entite.BanqueCommercial;
 import Pidev.entite.Corporate;
 import Pidev.entite.Currency;
-import Pidev.entite.CurrencyAccountCorporate;
+
 import Pidev.entite.ScoreboardPrices;
 
 @SuppressWarnings("serial")
@@ -171,13 +171,7 @@ public class RegisterBean implements Serializable {
 				corporate.setAddress(address);
 				corporate.setLibelle(name);
 				corporate.setTel(phone);
-				Set<CurrencyAccountCorporate> list = new HashSet<CurrencyAccountCorporate>();
-				CurrencyAccountCorporate curAC = new CurrencyAccountCorporate();
-				curAC.setAmount(100000.0);
-				for(Currency i : currencySL.findall())
-					if(i.isIs_local_currency())curAC.setCurrency(i);
-				list.add(curAC);
-				corporate.setAccount(list);
+				corporate.setCapitale(100001.0);
 				try {
 					corporateServiceLocal.add(corporate);
 					validateRegister = true;
@@ -200,7 +194,7 @@ public class RegisterBean implements Serializable {
 				commercialBanque.setTel(phone);
 				commercialBanque.setAddress(address);
 				commercialBanque.setLibelle(name);
-				commercialBanque.setFondPropre(10000000.0);
+				commercialBanque.setFondPropre(1000001.0);
 				
 				ScoreboardPrices scoreboard = new ScoreboardPrices();
 				Map<Currency,AskBid> price = new HashMap<Currency,AskBid>();
